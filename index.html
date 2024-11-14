@@ -1,16 +1,45 @@
-on: push
-name: 🚀 Deploy website on push
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2.3.2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: ftp.samkirkland.com
-        username: myFtpUserName
-        password: ${{ secrets.ftp_password }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Enter Item Details</h2>
+    <form id="item">
+        Name: <input type="text" id="name" required> <br><br>
+        Quantity: <input type="number" id="quantity" required> <br><br>
+        Price: <input type="number" id="price" required> <br><br>
+        <button type="button" id="addItem">Add Item</button>
+    </form>
+<br>
+    <table id="Tabless">
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </table>
+
+    <h3>Total Items</h3>
+    <p>Total Quantity: <span id="totalQuantity">0</span></p>
+    <p>Total Price: <span id="totalPrice">0</span></p>
+    <p>Total Items: <span id="totalItems">0</span></p>
+
+    <script src="intro.js"></script>
+</body>
+
+</html>
